@@ -10,7 +10,7 @@ import { ProductsService } from '../../products/services/products.service';
 export class UsersService {
   constructor(
     private productsServices: ProductsService,
-    @Inject('API_KEY') private apiKey: string,
+    @Inject('API_KEY_DATABASE') private apiKey: string,
     private configService: ConfigService,
   ) {}
   private counterId = 1;

@@ -12,17 +12,20 @@ import {
   Res,
   ParseIntPipe,
 } from '@nestjs/common';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
 import { Response } from 'express';
 import { CreateCustomerDto, UpdateCustomerDto } from '../dtos/customer.dtos';
 
 import { CustomersService } from '../services/customers.service';
 
+@ApiTags('customers')
 @Controller('customers')
 export class CustomersController {
   constructor(private customersService: CustomersService) {}
 
   @Get()
+  @ApiOperation({ summary: 'List of customers' })
   getCustomers(@Query('limit') limit = 100, @Query('offset') offset = 0) {
     return this.customersService.findAll();
   }

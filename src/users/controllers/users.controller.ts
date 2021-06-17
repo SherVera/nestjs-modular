@@ -15,10 +15,11 @@ import {
 
 import { Response } from 'express';
 import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos';
-
+import { ApiTags } from '@nestjs/swagger';
 import { UsersService } from '../services/users.service';
 
 @Controller('users')
+@ApiTags('products')
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
